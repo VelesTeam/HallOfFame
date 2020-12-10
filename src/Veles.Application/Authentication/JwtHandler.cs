@@ -7,40 +7,20 @@
    using System.Security.Claims;
    using System.Text;
    using Microsoft.Extensions.Options;
-   using Microsoft.IdentityModel.JsonWebTokens;
    using Microsoft.IdentityModel.Tokens;
    using Veles.Application.Authentication.Interfaces;
    using JwtRegisteredClaimNames = System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames;
 
    public class JwtHandler : IJwtHandler
    {
-      private static readonly ISet<string> DefaultClaims = new HashSet<string>
-      {
-         JwtRegisteredClaimNames.Sub,
-         JwtRegisteredClaimNames.UniqueName,
-         JwtRegisteredClaimNames.Jti,
-         JwtRegisteredClaimNames.Iat,
-         ClaimTypes.Role,
-      };
-
       private readonly JwtOptions _options;
-      private readonly JwtSecurityTokenHandler _jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
       private readonly SigningCredentials _signingCredentials;
-      private readonly TokenValidationParameters _tokenValidationParameters;
 
       public JwtHandler(IOptions<JwtOptions> jwtOptions)
       {
          _options = jwtOptions.Value;
          var issuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.SecretKey));
          _signingCredentials = new SigningCredentials(issuerSigningKey, SecurityAlgorithms.HmacSha256);
-         _tokenValidationParameters = new TokenValidationParameters
-         {
-            IssuerSigningKey = issuerSigningKey,
-            ValidIssuer = _options.Issuer,
-            ValidAudience = _options.ValidAudience,
-            ValidateAudience = _options.ValidateAudience,
-            ValidateLifetime = _options.ValidateLifetime
-         };
       }
 
       public JsonWebToken CreateToken(string userId, string role = null, string audience = null, IDictionary<string, string> claims = null)

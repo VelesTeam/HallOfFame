@@ -6,6 +6,7 @@ namespace Veles.API
    using Microsoft.Extensions.DependencyInjection;
    using Microsoft.Extensions.Hosting;
    using Veles.Infrastructure.CQRS;
+   using Veles.Infrastructure.Extensions;
 
    public class Startup
    {
