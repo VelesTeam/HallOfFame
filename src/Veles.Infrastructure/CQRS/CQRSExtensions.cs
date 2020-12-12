@@ -7,15 +7,8 @@
    using Veles.Infrastructure.CQRS.Query;
    using Veles.Infrastructure.CQRS.Query.Interfaces;
 
-   /// <summary>
-   /// The CQRS extensions
-   /// </summary>
    public static class CQRSExtensions
    {
-      /// <summary>
-      /// Adds the CQRS.
-      /// </summary>
-      /// <param name="services">The services.</param>
       public static void AddCQRS(this IServiceCollection services)
       {
          services.Scan(scan => scan

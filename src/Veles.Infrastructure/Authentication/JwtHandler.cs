@@ -1,4 +1,4 @@
-﻿namespace Veles.Application.Authentication
+﻿namespace Veles.Infrastructure.Authentication
 {
    using System;
    using System.Collections.Generic;
@@ -8,7 +8,8 @@
    using System.Text;
    using Microsoft.Extensions.Options;
    using Microsoft.IdentityModel.Tokens;
-   using Veles.Application.Authentication.Interfaces;
+   using Veles.Application.Authentication;
+   using IJwtHandler = Veles.Infrastructure.Authentication.Interfaces.IJwtHandler;
    using JwtRegisteredClaimNames = System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames;
 
    public class JwtHandler : IJwtHandler
@@ -23,7 +24,7 @@
          _signingCredentials = new SigningCredentials(issuerSigningKey, SecurityAlgorithms.HmacSha256);
       }
 
-      public JsonWebToken CreateToken(string userId, string role = null, string audience = null, IDictionary<string, string> claims = null)
+      public Infrastructure.Authentication.JsonWebToken CreateToken(string userId, string role = null, string audience = null, IDictionary<string, string> claims = null)
       {
          if(string.IsNullOrWhiteSpace(userId))
          {
@@ -57,7 +58,7 @@
          );
          var token = new JwtSecurityTokenHandler().WriteToken(jwt);
 
-         return new JsonWebToken()
+         return new Infrastructure.Authentication.JsonWebToken()
          {
             Id = userId,
             AccessToken = token,

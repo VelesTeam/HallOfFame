@@ -2,6 +2,8 @@
 
 namespace Veles.Domain.Entities
 {
+   using Veles.Domain.Exceptions;
+
    public class RefreshToken
    {
       public Guid UserId { get; }
@@ -21,7 +23,7 @@ namespace Veles.Domain.Entities
       {
          if(string.IsNullOrWhiteSpace(token))
          {
-            throw new ArgumentNullException("RefreshToken is null");
+            throw new DomainException(ErrorCode.InvalidToken, "Token is null or white space");
          }
 
          UserId = userId;
@@ -35,7 +37,7 @@ namespace Veles.Domain.Entities
       {
          if(Revoked)
          {
-            throw new NullReferenceException("RevokedTime is null");
+            throw new DomainException(ErrorCode.InvalidToken, "RevokedTime is null");
          }
 
          RevokedAt = revokedAt;
