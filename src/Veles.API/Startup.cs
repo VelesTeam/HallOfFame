@@ -5,8 +5,9 @@ namespace Veles.API
    using Microsoft.Extensions.Configuration;
    using Microsoft.Extensions.DependencyInjection;
    using Microsoft.Extensions.Hosting;
+   using Veles.Infrastructure.Authentication.Extensions;
    using Veles.Infrastructure.CQRS;
-   using Veles.Infrastructure.Extensions;
+   using Veles.Infrastructure.Mongo;
 
    public class Startup
    {
@@ -21,7 +22,10 @@ namespace Veles.API
       public void ConfigureServices(IServiceCollection services)
       {
          services.AddControllers();
+         services.AddMemoryCache();
          services.AddCQRS();
+         services.AddMongoDB(Configuration);
+         services.AddInternalAuthentication(Configuration);
       }
 
       // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,6 +41,7 @@ namespace Veles.API
          app.UseRouting();
 
          app.UseAuthorization();
+         app.UseAuthentication();
 
          app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
       }
