@@ -1,8 +1,10 @@
 ﻿namespace Veles.Infrastructure.Mongo.Documents
 {
    using System;
+   using MongoDB.Bson.Serialization.Attributes;
    using Veles.Domain.Entities;
 
+   [BsonIgnoreExtraElements]
    public class RefreshTokenDocument
    {
       public Guid UserId { get; set; }

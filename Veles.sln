@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Veles.Domain", "src\Veles.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Veles.Infrastructure", "src\Veles.Infrastructure\Veles.Infrastructure.csproj", "{23EB4999-01BF-4F79-852C-D10195955F6E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0F975513-EF21-4C06-B27A-12C73052352C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Veles.Tests", "Veles.Tests\Veles.Tests.csproj", "{0096BB3A-356F-44CA-BF9F-7915AFBA5C40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +39,10 @@ Global
 		{23EB4999-01BF-4F79-852C-D10195955F6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23EB4999-01BF-4F79-852C-D10195955F6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23EB4999-01BF-4F79-852C-D10195955F6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0096BB3A-356F-44CA-BF9F-7915AFBA5C40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0096BB3A-356F-44CA-BF9F-7915AFBA5C40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0096BB3A-356F-44CA-BF9F-7915AFBA5C40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0096BB3A-356F-44CA-BF9F-7915AFBA5C40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +52,7 @@ Global
 		{7544C87A-12D9-4251-BEC4-0FA282B855C4} = {B2B43557-AB6B-498F-9688-87C50E9A9AFD}
 		{4F13E164-ABAD-428C-9BF2-65F76E158407} = {B2B43557-AB6B-498F-9688-87C50E9A9AFD}
 		{23EB4999-01BF-4F79-852C-D10195955F6E} = {B2B43557-AB6B-498F-9688-87C50E9A9AFD}
+		{0096BB3A-356F-44CA-BF9F-7915AFBA5C40} = {0F975513-EF21-4C06-B27A-12C73052352C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8E3E00E-3428-40D1-9D76-7E993D2E499C}

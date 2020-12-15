@@ -11,7 +11,7 @@
    {
       public static void AddMongoDB(this IServiceCollection services, IConfiguration config)
       {
-         services.AddScoped<IRefreshTokenRepository, MongoRefreshTokenRepository>();
+         services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
 
          services.Configure<MongoOptions>(config.GetSection("mongo"));
          services.AddSingleton<IMongoClient>(x =>

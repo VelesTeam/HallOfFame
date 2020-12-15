@@ -7,11 +7,11 @@
    using Veles.Domain.Repository;
    using Veles.Infrastructure.Mongo.Documents;
 
-   public class MongoRefreshTokenRepository : IRefreshTokenRepository
+   public class RefreshTokenRepository : IRefreshTokenRepository
    {
       private readonly IMongoCollection<RefreshTokenDocument> _collection;
 
-      public MongoRefreshTokenRepository(IMongoDatabase database)
+      public RefreshTokenRepository(IMongoDatabase database)
       {
          _collection = database.GetCollection<RefreshTokenDocument>("refreshTokens");
       }
